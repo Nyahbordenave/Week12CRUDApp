@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LitLog</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="container" style="background-color: #e6dbab;">
+    <div id="new-book" class="jumbotron"> <!-- code for including logo photo as well as header and secondary header of website name-->
+        <img src="https://www.creativefabrica.com/wp-content/uploads/2022/12/27/Minimalist-One-Line-Art-Drawing-Of-An-Open-Book-54775094-1.png" alt="Library Logo" style="max-width: 250px; max-height: 300px; align-content: flex-end; margin-left: 37%;">
+        <h1 class="header">Welcome to LitLog</h1>
+        <h5 class="header">Your Digital Literature Log</h4>
+        <br>
+<!-- Title for adding new information to log-->
+        <h5 class="title">Please Add Your Books Below!</h5>
+        <form id="book-form">
+            <label for="new-book-name">Book Title:</label>
+            <input type="text" id="new-book-name" class="form-control">
+            <br>
+
+            <label for="new-book-author">Author:</label>
+            <input type="text" id="new-book-author" class="form-control">
+            <br>
+
+            <label for="new-book-date">Date Read:</label>
+            <input type="date" id="new-book-date" class="form-control">
+            <br>
+
+            <label for="new-book-synopsis">Synopsis:</label>
+            <textarea id="new-book-synopsis" class="form-control"></textarea>
+            <br>
+
+            <label for="new-book-rating">Rating:</label>
+            <input type="number" id="new-book-rating" class="form-control" min="1" max="5">
+            <br>
+            <!-- code for button to add all information to a new bootstrap card-->
+            <button type="button" id="create-new-book" class="btn btn-secondary" onclick="addBook()">Create</button>
+        </form>
+    </div>
+
+    <div id="app" class="row">
+        <!-- Modal for updating book details -- borrowed from bootswatch.com so user is able to update each completed card entry-->
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Update Book Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="update-book-form">
+                            <!-- Input fields for updating book details -->
+                            <label for="update-book-title">Book Title:</label>
+                            <input type="text" id="update-book-title" class="form-control"> <label for="update-book-id">Book ID:</label>
+                            <input type="text" id="update-book-id" class="form-control" readonly>
+                            <br>
+                            <br>
+
+                            <label for="update-book-author">Author:</label>
+                            <input type="text" id="update-book-author" class="form-control">
+                            <br>
+
+                            <label for="update-book-date">Date Read:</label>
+                            <input type="date" id="update-book-date" class="form-control">
+                            <br>
+
+                            <label for="update-book-synopsis">Synopsis:</label>
+                            <textarea id="update-book-synopsis" class="form-control"></textarea>
+                            <br>
+
+                            <label for="update-book-rating">Rating:</label>
+                            <input type="number" id="update-book-rating" class="form-control" min="1" max="5">
+                            <br>
+
+                            <button type="button" class="btn btn-warning" onclick="updateBook()">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="index.js"></script>
+</body>
+</html>
